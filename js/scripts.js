@@ -1,4 +1,3 @@
-var myPremadePizzaList = [];//Will store standard Pizzas
 var myPizzaOrders = []; //Will store all my stores current Pizza orders.
 
 function Pizza(nameIn, sizeIn, crustIn, toppingsIn){
@@ -24,7 +23,15 @@ $(document).ready(function(){
   });
   $("form#pizzaForm").submit(function(event) {
   event.preventDefault();
-
+  var nameIn = $("#name").val();
+  var sizeIn = parseInt($("#sizeOf").val());
+  var crustIn = $("#sizeOf").val();
+  var toppings = [];
+  $("input:checkbox[name=topping]:checked").each(function(){
+    toppings.push($(this).val());
+  });
+  var newPizza = new Pizza(nameIn, sizeIn, crustIn,toppings);
+  myPizzaOrders.push(newPizza);
   });
 });
 
