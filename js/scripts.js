@@ -16,16 +16,32 @@ Pizza.prototype.cost = function(){
   return thisPizzasCost;
 }
 Pizza.prototype.toString = function(){
-  return "Name: " + this.name + "Size: " + this.size + "Crust: " + this.crust + "Toppings: " + this.toppings.toString() + "Cost: " + this.cost();
+  return "<strong>Name:</strong> " + this.name + "<br>" + " <strong>Size:</strong> " + this.size + "<br>" + " <strong>Crust:</strong> " + this.crust + "<br>" + " <strong>Toppings:</strong> " + this.toppings.toString() + "<br>" + " <strong>Cost:</strong> " + this.cost();
+}
+
+function printMyPizzaOrders(){
+  $("#results").text("");
+  $("#results").prepend("<h4><strong>" + "Pizza Order List:" + "</strong><h4>");
+  var resultString = "";
+  var totalCost = 0;
+  for(var i = 0; i < myPizzaOrders.length; i ++){
+    resultString = "";
+    resultString += myPizzaOrders[i].toString();
+    totalCost += myPizzaOrders[i].cost();
+    $("#results").append("<p>" + resultString + "</p>");
+  }
+    $("#results").append("<h6><strong>" + "Total Cost: "+ "</strong></h6>" + totalCost);
 }
 $(document).ready(function(){
-  $("filler").click(function(){
+  $("#showResults").click(function(){
+      $("#results").toggle();
+      printMyPizzaOrders();
   });
   $("form#pizzaForm").submit(function(event) {
   event.preventDefault();
   var nameIn = $("#name").val();
   var sizeIn = parseInt($("#sizeOf").val());
-  var crustIn = $("#sizeOf").val();
+  var crustIn = $("#crust").val();
   var toppings = [];
   //Looping through each topping Checkbox;
   $("input:checkbox[name=topping]:checked").each(function(){

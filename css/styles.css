@@ -3,7 +3,7 @@ body {
   color: #3B3738;
 }
 .jumbotron {
-  color: #3B3738;
+  color: white;
   background-color: #C63D0F;
   width: 100%;
 }
@@ -12,4 +12,12 @@ body {
 .jumbotron h2 {
 text-align: center;
 font-size: 400%;
+}
+
+#name, #sizeOf, #crust {
+  width: 50%;
+}
+
+#results {
+  display: none;
 }
