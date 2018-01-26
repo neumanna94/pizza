@@ -1,0 +1,15 @@
+body {
+  background-color: #FDF3E7;
+  color: #3B3738;
+}
+.jumbotron {
+  color: #3B3738;
+  background-color: #C63D0F;
+  width: 100%;
+}
+
+
+.jumbotron h2 {
+text-align: center;
+font-size: 400%;
+}

@@ -27,14 +27,12 @@ $(document).ready(function(){
   var sizeIn = parseInt($("#sizeOf").val());
   var crustIn = $("#sizeOf").val();
   var toppings = [];
+  //Looping through each topping Checkbox;
   $("input:checkbox[name=topping]:checked").each(function(){
     toppings.push($(this).val());
   });
   var newPizza = new Pizza(nameIn, sizeIn, crustIn,toppings);
   myPizzaOrders.push(newPizza);
+
   });
 });
-
-var one = new Pizza("Cheese", 12, "Normal", ["Anchovies, Tomatoes"]);
-one.cost();
-one.toString();
