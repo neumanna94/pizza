@@ -21,3 +21,6 @@ font-size: 400%;
 #results {
   display: none;
 }
+.footer {
+  text-align: center;
+}

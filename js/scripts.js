@@ -18,25 +18,26 @@ Pizza.prototype.cost = function(){
 Pizza.prototype.toString = function(){
   return "<strong>Name:</strong> " + this.name + "<br>" + " <strong>Size:</strong> " + this.size + "<br>" + " <strong>Crust:</strong> " + this.crust + "<br>" + " <strong>Toppings:</strong> " + this.toppings.toString() + "<br>" + " <strong>Cost:</strong> " + this.cost();
 }
-
 function printMyPizzaOrders(){
   $("#results").text("");
-  $("#results").prepend("<h4><strong>" + "Pizza Order List:" + "</strong><h4>");
+  $("#results").prepend("<h4><strong>" + "Pizza Order List:" + "</strong><h4><hr></hr>");
   var resultString = "";
   var totalCost = 0;
   for(var i = 0; i < myPizzaOrders.length; i ++){
     resultString = "";
     resultString += myPizzaOrders[i].toString();
     totalCost += myPizzaOrders[i].cost();
-    $("#results").append("<p>" + resultString + "</p>");
+    $("#results").append("<p>" + resultString + "</p><hr></hr>");
   }
     $("#results").append("<h6><strong>" + "Total Cost: "+ "</strong></h6>" + totalCost);
 }
+
 $(document).ready(function(){
   $("#showResults").click(function(){
       $("#results").toggle();
       printMyPizzaOrders();
   });
+
   $("form#pizzaForm").submit(function(event) {
   event.preventDefault();
   var nameIn = $("#name").val();
@@ -49,6 +50,5 @@ $(document).ready(function(){
   });
   var newPizza = new Pizza(nameIn, sizeIn, crustIn,toppings);
   myPizzaOrders.push(newPizza);
-
   });
 });
